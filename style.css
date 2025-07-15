@@ -1,8 +1,9 @@
 /**CSS VARIABLES**/
+@charset "UTF-8";
+
 :root {
   --container-width: 119rem;
   --gutter: 2rem;
-
   --color-black: #000;
   --color-white: #fff;
   --color-blue: #2374e1;
@@ -13,21 +14,17 @@
   --color-green: #03a696;
   --color-grey: #f6f6f6;
   --color-dark-green: #42959b;
-
   --color-background: var(--color-white);
   --color-text: var(--color-black);
   --color-box-img: var(--color-black);
   --color-link-bg: var(--color-black);
   --color-input-border: var(--color-black);
-
   --font-family-raleway: "Raleway", sans-serif;
   --font-family-poppins: "Poppins", sans-serif;
-
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
-
   --font-size-70: 7rem;
   --font-size-65: 6.5rem;
   --font-size-40: 4rem;
@@ -37,19 +34,18 @@
   --font-size-20: 2rem;
   --font-size-18: 1.8rem;
   --font-size-15: 1.5rem;
-
   --transition-timing: 0.3s;
 }
 
-/** End css variables **/
-/* * Start css reset * */
 * {
   margin: 0;
   padding: 0;
-  font-family: inherit;
+  font: inherit;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -62,14 +58,118 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  border: 0;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 11rem;
 }
 
 /* *End css reset **/
 
 body {
   font-size: 1.6rem;
+  font-family: var(--font-family-raleway);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding: 0 var(--gutter);
+}
+
+.header {
+  position: relative;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+
+  height: 100%;
+  width: 100vw;
+  border-bottom: 0.1rem solid var(--color-input-border);
+  top: 0;
+  z-index: -1;
+}
+
+.navigation_list {
+  display: flex;
+  gap: 2rem;
+}
+
+.navigation_link:link,
+.navigation_link:visited {
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+}
+
+.navigation_link:hover,
+.navigation_link:active {
+  color: var(--color-blue);
+  transition: color var(--transition-timing);
+  text-decoration: wavy underline;
+}
+
+/* ! Toggle */
+.toggle {
+  display: flex;
+  /* ✅ */
+  gap: 1rem;
+  /* ✅ */
+  margin-left: auto;
+  /* ✅ */
+}
+
+.toggle__title {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-18);
+}
+
+.toggle__label {
+  display: block;
+  position: relative;
+  background-color: var(--color-black);
+  padding: 0.3rem 0.4rem;
+  border-radius: 1.5rem;
+  width: 4.5rem;
+  height: 2.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle__label::after {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  display: block;
+  background-color: var(--color-white);
+  transition: 0.3s;
+}
+
+.toggle__checkbox {
+  display: none;
+}
+
+.toggle__checkbox:checked+.toggle__label {
+  background: var(--color-white);
+}
+
+.toggle__checkbox:checked+.toggle__label::after {
+  transform: translateX(2.1rem);
+  background: var(--color-green);
+
 }
