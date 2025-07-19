@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Skills</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 2rem;
+        background: #f9f9f9;
+      }
+
+      .skills__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+
+      .skills-item {
+        list-style: none;
+        background: #fff;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .skills-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .skills__title {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin: 0 0 0.4rem;
+      }
+
+      .skills__title::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 1.2rem;
+        opacity: 0;
+        transform: translateY(-5px);
+        animation: fadeInIcon 0.5s forwards;
+      }
+
+      .skills__years {
+        font-size: 1rem;
+        color: #555;
+      }
+
+      /* Animations */
+      @keyframes fadeInIcon {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Specific icons by order */
+      .skills-item:nth-child(1) .skills__title::before {
+        content: "\f13b";
+        font-family: "Font Awesome 6 Brands";
+        color: #e34c26;
+      }
+
+      .skills-item:nth-child(2) .skills__title::before {
+        content: "\f13c";
+        font-family: "Font Awesome 6 Brands";
+        color: #264de4;
+      }
+
+      .skills-item:nth-child(3) .skills__title::before {
+        content: "\f3b9";
+        font-family: "Font Awesome 6 Brands";
+        color: #f0db4f;
+      }
+
+      .skills-item:nth-child(4) .skills__title::before,
+      .skills-item:nth-child(7) .skills__title::before,
+      .skills-item:nth-child(9) .skills__title::before {
+        content: "\f121";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: #00599c;
+      }
+
+      .skills-item:nth-child(5) .skills__title::before {
+        content: "\f4e4";
+        font-family: "Font Awesome 6 Brands";
+        color: #007396;
+      }
+
+      .skills-item:nth-child(6) .skills__title::before {
+        content: "\f3e2";
+        font-family: "Font Awesome 6 Brands";
+        color: #3776ab;
+      }
+
+      .skills-item:nth-child(8) .skills__title::before {
+        content: "\f542";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: #4caf50;
+      }
+
+      .skills-item:nth-child(10) .skills__title::before {
+        content: "\f41b";
+        font-family: "Font Awesome 6 Brands";
+        color: #61dbfb;
+      }
+
+      .skills-item:nth-child(11) .skills__title::before {
+        content: "\f09b";
+        font-family: "Font Awesome 6 Brands";
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="skills__list">
+      <li class="skills-item">
+        <h2 class="skills__title">HTML</h2>
+        <span class="skills__years">2 years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">CSS</h2>
+        <span class="skills__years">2 years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">Javascript</h2>
+        <span class="skills__years">1 year</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">C++</h2>
+        <span class="skills__years">3years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">Java</h2>
+        <span class="skills__years">3 years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">Python</h2>
+        <span class="skills__years">2 years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">C++</h2>
+        <span class="skills__years">2 years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">Data Structure</h2>
+        <span class="skills__years">2 years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">C++</h2>
+        <span class="skills__years">2 years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">React</h2>
+        <span class="skills__years">2 years</span>
+      </li>
+      <li class="skills-item">
+        <h2 class="skills__title">Git & Github</h2>
+        <span class="skills__years">2 years</span>
+      </li>
+    </ul>
+  </body>
+</html>
