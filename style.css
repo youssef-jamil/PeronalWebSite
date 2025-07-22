@@ -87,6 +87,16 @@ body {
   color: var(--color-text);
 }
 
+.video_loop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.08;
+  z-index: -1;
+}
+
 .container {
   display: grid;
   row-gap: 11rem;
@@ -109,7 +119,8 @@ body {
 }
 
 .section--with-bg {
-  padding: 11rem 0;
+  padding: 10rem 0;
+  position: relative;
 }
 
 .section--with-bg::before {
@@ -373,12 +384,8 @@ body {
   margin-right: 8px;
 }
 
-.skills-item:nth-child(8) h2::before {
-  content: "\f542";
-  color: #4caf50;
-}
 
-.skills-item:nth-child(9) .skills__title::before {
+.skills-item:nth-child(8) .skills__title::before {
   content: "\f09b";
   font-family: "Font Awesome 6 Brands";
   color: #333;
@@ -421,15 +428,47 @@ body {
   }
 }
 
+.skills-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s ease forwards;
+}
 
-.skills__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 4rem;
-  column-gap: 17rem;
+.skills-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.skills-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.skills-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* كرّر للكل أو استخدم JavaScript لو أكثر */
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
+.skills__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 5rem;
+}
+
+.skills__item {
+  transition: var(--transition-timing);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 .skills__title {
   font-size: var(--font-size-38);
@@ -442,15 +481,19 @@ body {
   margin-top: 1rem;
 }
 
-.skills__item {
-  transition: var(--transition-timing);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-
 .skills__item:hover {
   text-shadow: 0 0 2px var(--color-green);
 }
+
+/*Media componente */
+
+.nedia {
+  align-items: center;
+  justify-content: center;
+}
+
+.media_video {
+  max-width: 100%;
+}
+
+.video_loop {}
