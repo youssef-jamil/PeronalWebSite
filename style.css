@@ -400,7 +400,6 @@ body {
   animation-delay: 0.2s;
 }
 
-/* يمكنك تخصيص كل عنصر تأخير مختلف لو حبيت */
 .skills-item:nth-child(2) h2::before,
 .skills-item:nth-child(2) .skills__title::before {
   animation-delay: 0.4s;
@@ -446,7 +445,9 @@ body {
   animation-delay: 0.3s;
 }
 
-/* كرّر للكل أو استخدم JavaScript لو أكثر */
+.skills-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
 
 @keyframes slideUp {
   to {
@@ -485,9 +486,9 @@ body {
   text-shadow: 0 0 2px var(--color-green);
 }
 
-/*Media componente */
+/*Media component */
 
-.nedia {
+.media {
   align-items: center;
   justify-content: center;
 }
@@ -496,4 +497,5 @@ body {
   max-width: 100%;
 }
 
-.video_loop {}
+/*Media component end*/
+/*Project Component*/
