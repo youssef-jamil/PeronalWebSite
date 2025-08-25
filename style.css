@@ -70,7 +70,6 @@ ol {
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  scroll-padding-top: 11rem;
 }
 
 /* *End css reset **/
@@ -110,6 +109,7 @@ body {
   font-weight: var(--font-weight-bold);
   grid-column: 1/-1;
   margin-bottom: 8.7rem;
+  text-transform: uppercase;
 }
 
 .h3-heading {
@@ -144,21 +144,24 @@ body {
 
 
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
   padding: 3rem 0;
+  background-color: var(--color-background);
   display: flex;
   justify-content: center;
+  z-index: 1;
 }
 
 .header::before {
   content: "";
   position: absolute;
-
   height: 100%;
   width: 100vw;
   border-bottom: 0.1rem solid var(--color-input-border);
   top: 0;
   z-index: -1;
+  background-color: var(--color-white);
 }
 
 .navigation_list {
@@ -177,6 +180,12 @@ body {
   color: var(--color-blue);
   transition: color var(--transition-timing);
   text-decoration: wavy underline;
+}
+
+.container:has(.bio:target) .navigation_bio, .container:has(.skills:target) .navigation_skills, .container:has(.media:target) .navigation_media, .container:has(.projects:target) .navigation_projects, .container:has(.clients:target) .navigation_client_feedback, .container:has(.contact:target) .navigation_contact {
+  color: var(--color-blue);
+  text-decoration: wavy underline;
+  font-weight: var(--font-weight-bold);
 }
 
 /* ! Toggle */
@@ -340,87 +349,12 @@ body {
 /*End Bio*/
 
 /*Skills Section*/
-
-.skills-item h2::before {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.skills-item:nth-child(1) .skills__title::before {
-  content: "\f13b";
-  font-family: "Font Awesome 6 Brands";
-  color: #e34c26;
-}
-
-.skills-item:nth-child(2) .skills__title::before {
-  content: "\f13c";
-  font-family: "Font Awesome 6 Brands";
-  color: #264de4;
-}
-
-.skills-item:nth-child(3) h2::before {
-  content: "\f3b9";
-  font-family: "Font Awesome 6 Brands";
-  color: #f0db4f;
-}
-
-.skills-item:nth-child(4) h2::before {
-  content: "\f121";
-  color: #00599c;
-}
-
-.skills-item:nth-child(5) h2::before {
-  content: "\f4e4";
-  font-family: "Font Awesome 6 Brands";
-  color: #007396;
-}
-
-.skills-item:nth-child(6) h2::before {
-  content: "\f3e2";
-  font-family: "Font Awesome 6 Brands";
-  color: #3776ab;
-}
-
-.skills-item:nth-child(7) .skills__title::before {
-  content: "\f41b";
-  font-family: "Font Awesome 6 Brands";
-  color: #61DBFB;
-  margin-right: 8px;
-}
-
-
-.skills-item:nth-child(8) .skills__title::before {
-  content: "\f09b";
-  font-family: "Font Awesome 6 Brands";
-  color: #333;
-  margin-right: 8px;
-}
-
 .skills-item h2::before,
 .skills__title::before {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.2s;
+  content: none;
 }
 
-.skills-item:nth-child(2) h2::before,
-.skills-item:nth-child(2) .skills__title::before {
-  animation-delay: 0.4s;
-}
-
-.skills-item:nth-child(3) h2::before,
-.skills-item:nth-child(3) .skills__title::before {
-  animation-delay: 0.6s;
-}
-
-.skills-item:nth-child(4) h2::before,
-.skills-item:nth-child(4) .skills__title::before {
-  animation-delay: 0.8s;
-}
-
+/* حركة ظهور العناصر */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -432,6 +366,15 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 .skills-item {
   opacity: 0;
@@ -455,18 +398,75 @@ body {
   animation-delay: 0.4s;
 }
 
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.skills-item:nth-child(5) {
+  animation-delay: 0.5s;
 }
 
+.skills-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
+.skills-item:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.skills-item:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+/* حركة على اللوجو نفسه */
+.skills__logo {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* تأخير مختلف لكل صورة */
+.skills-item:nth-child(1) .skills__logo {
+  animation-delay: 0.2s;
+}
+
+.skills-item:nth-child(2) .skills__logo {
+  animation-delay: 0.4s;
+}
+
+.skills-item:nth-child(3) .skills__logo {
+  animation-delay: 0.6s;
+}
+
+.skills-item:nth-child(4) .skills__logo {
+  animation-delay: 0.8s;
+}
+
+.skills-item:nth-child(5) .skills__logo {
+  animation-delay: 1s;
+}
+
+.skills-item:nth-child(6) .skills__logo {
+  animation-delay: 1.2s;
+}
+
+.skills-item:nth-child(7) .skills__logo {
+  animation-delay: 1.4s;
+}
+
+.skills-item:nth-child(8) .skills__logo {
+  animation-delay: 1.6s;
+}
+
+/* شكل الليست */
 .skills__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 5rem;
+  column-gap: 7rem;
+  text-align: center;
+  justify-content: center;
+  margin-left: 5rem;
 }
 
 .skills__item {
@@ -491,6 +491,26 @@ body {
 .skills__item:hover {
   text-shadow: 0 0 2px var(--color-green);
 }
+
+
+.skills__logo {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+/* Hover Effect */
+.skills__logo:hover {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 8px var(--color-green));
+}
+
+/* End Skills Section */
 
 /*Media component */
 
@@ -585,3 +605,89 @@ body {
 }
 
 /*End Client Feedback Component*/
+/*Contact Me Component*/
+.contact {
+  -moz-column-gap: 20rem;
+  column-gap: 20rem;
+  row-gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.contact-description {
+  font-size: var(--font-size-20);
+  line-height: 1.9;
+}
+
+.contact-email {
+  font-weight: var(--font-weight-bold);
+  margin: 2.5rem 0;
+  font-size: var(--font-size-24);
+  color: var(--color-light-blue);
+}
+
+.contact-social {
+  transition: var(--transition-timing);
+}
+
+.contact-social:hover {
+  transform: scale(1.2);
+}
+
+.contact__inputs {
+  display: flex;
+  gap: 3rem;
+}
+
+.contact__input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 0.1rem solid var(--color-input-border);
+  flex: 1;
+}
+
+.contact__textarea {
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.contact__button {
+  background-color: var(--color-link-bg);
+  color: var(--color-white);
+  padding: 1.7rem 1.8rem;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-24);
+  margin-top: 3.4rem;
+}
+
+.contact form:invalid::after {
+  content: "*";
+  font-size: var(--font-size-38);
+  color: var(--color-red);
+}
+
+/*End Contact Me Component*/
+
+/* Start Footer */
+.footer {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
+
+.footer span {
+  color: var(--color-blue);
+  font-weight: bold;
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+}
